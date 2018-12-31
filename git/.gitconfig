@@ -1,0 +1,51 @@
+[user]
+	email = victor.peres93@gmail.com
+	name = Victor Peres
+[core]
+    editor = vim
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[push]
+    default = upstream
+[alias]
+    ap = add -p
+    #############
+    cm = commit -m
+    cam = commit --amend
+    cane = commit --amend --no-edit
+    #############
+    ds = diff --staged
+    #############
+    lg = log --all --graph --decorate --oneline
+    #############
+    rb = rebase
+    rbm = rebase master
+    rbi = rebase --interactive
+    rbs = rebase --skip
+    rbc = rebase --continue
+    rba = rebase --abort
+    #############
+    s = status
+    #############
+    t = tag
+[color]
+    ui=true
+[color "diff-highlight"]
+    oldNormal = red bold
+[color "diff-highlight"]
+    oldHighlight = red bold 52
+[color "diff-highlight"]
+    newNormal = green bold
+[color "diff-highlight"]
+    newHighlight = green bold 22
+[color "diff"]
+    meta = yellow
+[color "diff"]
+    frag = magenta bold
+[color "diff"]
+    commit = yellow bold
+[color "diff"]
+    old = red bold
+[color "diff"]
+    new = green bold
+[color "diff"]
+    whitespace = red reverse
