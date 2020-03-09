@@ -25,6 +25,9 @@
     rbc = rebase --continue
     rba = rebase --abort
     #############
+    mm = merge master
+    ma = merge --abort
+    #############
     s = status
     #############
     t = tag
