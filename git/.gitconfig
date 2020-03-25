@@ -31,6 +31,8 @@
     s = status
     #############
     t = tag
+    #############
+    uw = reset HEAD~1
 [color]
     ui=true
 [color "diff-highlight"]
