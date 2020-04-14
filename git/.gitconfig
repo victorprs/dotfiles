@@ -2,11 +2,11 @@
 	email = victor.peres93@gmail.com
 	name = Victor Peres
 [core]
-    editor = vim
+    editor = nvim
     pager = diff-so-fancy | less --tabs=4 -RFX
-    excludesfile = /home/victor/.gitignore
+    excludesfile = ~/.gitignore_global
 [push]
-    default = upstream
+    default = current
 [alias]
     ap = add -p
     #############
