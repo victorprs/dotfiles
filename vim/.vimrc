@@ -2,19 +2,13 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
-
 " ================ General Config ====================
 
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=10000               "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
+set showcmd                     " incomplete cmds down the bottom
+set showmode                    " current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
@@ -26,14 +20,6 @@ set hidden
 
 "turn on syntax highlighting
 syntax on
-
-" =============== Vundle Initialization ===============
-" This loads all the plugins specified in ~/.vim/vundles.vim
-" Use Vundle plugin to manage all other plugins
-"if filereadable(expand("~/.vim/vundles.vim"))
-"  source ~/.vim/vundles.vim
-"endif
-"au BufNewFile,BufRead *.vundle set filetype=vim
 
 " ================ Turn Off Swap Files ==============
 
@@ -59,10 +45,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-
-" Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
 
 filetype plugin on
 filetype indent on
@@ -102,12 +84,31 @@ set sidescroll=1
 
 " ================ Search ===========================
 
-set incsearch       " Find the next match as we type the search
-set hlsearch        " Highlight searches by default
-set ignorecase      " Ignore case when searching...
-set smartcase       " ...unless we type a capital
+set incsearch        " Find the next match as we type the search
+set hlsearch         " Highlight searches by default
+set ignorecase       " Ignore case when searching...
+set smartcase        " ...unless we type a capital
 
+if has('nvim')
+  set inccommand=split " Preview command result as we type
+end
 " ================ Security ==========================
 set modelines=0
 set nomodeline
+
+" =============== Plugins ============================
+" Call the .vimrc.plug file
+ if filereadable(expand("~/.vimrc.plug"))
+     source ~/.vimrc.plug
+ endif
+
+" =============== Netrw   ============================
+let g:netrw_banner = 0              " Remove useless banner
+let g:netrw_browse_split = 2        " Open file to new vertical split
+set splitbelow                      " Open new vertical split below
+set splitright                      " Open new horizontal split right
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
