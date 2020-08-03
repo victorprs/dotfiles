@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/victor/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -69,6 +69,7 @@ ZSH_THEME="crunch"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+plugins=(asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,44 +100,3 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 . $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
-
-# Stone kubectl config
-export KUBECONFIG=/home/victor/.kube/stone
-
-# Stone hex-pm config
-export HEX_ORG_KEY=<HEX_ORG_KEY>
-
-# Stone Vault
-export VAULT_ADDR="https://vault.shared.stone.credit"
-export VAULT_GIT_TOKEN="GIT_TOKEN"
-vault-login() { vault login -address=$VAULT_ADDR -method=github token=$VAULT_GIT_TOKEN }
-vault-list-roles() { vault list aws/roles/ }
-vault-read-aws-credentials() { vault read aws/creds/$1 ttl=12h }
-
-# Stone AWS
-aws-eks() { aws eks --profile $1 --region us-east-1 update-kubeconfig --name $1 --alias $1 }
-aws-get-credentials() {
-vault-read-aws-credentials $1 > /tmp/aws-credentials
-echo "[$1]
-aws_access_key_id=$(cat /tmp/aws-credentials | grep access_key | cut -c 20-)
-aws_secret_access_key=$(cat /tmp/aws-credentials | grep secret_key | cut -c 20-)
-aws_session_token=$(cat /tmp/aws-credentials | grep security_token | cut -c 20-)"
-}
-aws-set-credentials() {
-aws-get-credentials k8s-sandbox > ~/.aws/credentials
-aws-get-credentials k8s-homolog >> ~/.aws/credentials
-}
-aws-update-contexts() {
-aws-eks k8s-sandbox
-aws-eks k8s-homolog
-}
-aws-setup() {
-vault-login
-aws-set-credentials
-aws-update-contexts
-}
-
-
-source <(kubectl completion zsh)
