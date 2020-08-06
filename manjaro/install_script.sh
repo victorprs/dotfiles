@@ -17,6 +17,7 @@ source ~/.zshrc
 sed '/^# Misc options/a ILoveCandy' /etc/pacman.conf | sudo tee /etc/pacman.conf > /dev/null
 
 # Update and install programs from pacman
+sudo pacman-mirrors --fasttrack 5
 sudo pacman -Syyu
 sudo pacman -S zsh terminator yay firefox-developer-edition vim neovim docker \
                 docker-compose base-devel diff-so-fancy glu mesa wxgtk2 libpng \
