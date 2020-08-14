@@ -30,7 +30,7 @@ sudo usermod -aG docker $USER
 
 # Install more programs from yay
 curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
-yay -S visual-studio-code-bin spotify redshift telegram-desktop
+yay -S visual-studio-code-bin spotify redshift telegram-desktop heroku-cli
 
 # Install asdf-vm and some plugins
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0-rc1
