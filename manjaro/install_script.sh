@@ -58,6 +58,8 @@ ${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring
 asdf install nodejs latest
 asdf global nodejs $(asdf list nodejs)
 
+pip3 install gigalixir --user
+
 # Start redshift
 nohup redshift -t 4700:4700 -b 0.77:0.77 -P >/dev/null 2>&1 &
 
