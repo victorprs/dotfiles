@@ -21,7 +21,7 @@ sudo pacman-mirrors --fasttrack 5
 sudo pacman -Syyu
 sudo pacman -S zsh terminator yay firefox-developer-edition vim neovim docker \
                 docker-compose base-devel diff-so-fancy glu mesa wxgtk2 libpng \
-                fop htop python-psycopg2 workrave dbeaver keepass
+                fop htop python-psycopg2 workrave dbeaver keepass inotify-tools
 sudo pacman -Rcns firefox
 # Set zsh shell as default
 sudo chsh -s $(which zsh)
