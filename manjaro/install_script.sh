@@ -60,6 +60,11 @@ asdf global nodejs $(asdf list nodejs)
 
 pip3 install gigalixir --user
 
+# Install rust
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+echo -e '\nexport PATH=$PATH:$HOME/.cargo/bin' >> ~/.zshrc
+source .zshrc
+
 # Start redshift
 nohup redshift -t 4700:4700 -b 0.77:0.77 -P >/dev/null 2>&1 &
 

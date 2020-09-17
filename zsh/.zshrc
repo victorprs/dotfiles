@@ -99,3 +99,5 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 . $HOME/.asdf/asdf.sh
+
+export PATH=$PATH:$HOME/.cargo/bin
