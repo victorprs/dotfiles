@@ -1,2 +1,4 @@
 .vscode
 .elixir_ls
+.calva
+.clj_kondo
